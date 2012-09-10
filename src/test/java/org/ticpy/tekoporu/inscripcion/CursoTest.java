@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.ticpy.tekoporu.inscripcion.exception.CursoException;
 import org.ticpy.tekoporu.junit.DemoiselleRunner;
 
 @RunWith(DemoiselleRunner.class)
@@ -20,13 +21,13 @@ public class CursoTest {
 
 	}
 
-	@Test(expected = RuntimeException.class)
+	@Test(expected = CursoException.class)
 	public void errorMatricularAlumnoDuplicado() {
 		curso.matricular("Andres Gonzalez");
 		curso.matricular("Andres Gonzalez");
 	}
 
-	@Test(expected = RuntimeException.class)
+	@Test(expected = CursoException.class)
 	public void errorMatricularCursoLleno() {
 		for (int i = 1; i <= 5; i++) {
 			curso.matricular("Alumno " + i);
