@@ -6,8 +6,11 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
+import org.ticpy.tekoporu.exception.ExceptionHandler;
+import org.ticpy.tekoporu.stereotype.Controller;
 import org.ticpy.tekoporu.util.ResourceBundle;
 
+@Controller
 public class Curso {
 
 	private List<String> alumnosMatriculados = new ArrayList<String>();
@@ -28,6 +31,12 @@ public class Curso {
 
 	public boolean estaMatriculado(String alumno) {
 		return alumnosMatriculados.contains(alumno);
+	}
+
+	@ExceptionHandler
+	public void tratar(RuntimeException e) {
+		logger.warn(bundle.getString("matricula.error"));
+		throw e;
 	}
 
 }
