@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.ticpy.tekoporu.exception.ExceptionHandler;
+import org.ticpy.tekoporu.inscripcion.config.InscripcionConfig;
 import org.ticpy.tekoporu.inscripcion.exception.CursoException;
 import org.ticpy.tekoporu.stereotype.Controller;
 import org.ticpy.tekoporu.util.ResourceBundle;
@@ -18,11 +19,16 @@ public class Curso {
 
 	@Inject
 	private Logger logger;
+	
 	@Inject
 	private ResourceBundle bundle;
+	
+	@Inject 
+	private InscripcionConfig config;
 
 	public void matricular(String alumno) {
-		if (estaMatriculado(alumno) || alumnosMatriculados.size() == 5) {
+		if (estaMatriculado(alumno) || alumnosMatriculados.size() == 
+				config.getCapacidadCurso()) {
 			throw new CursoException();
 		}
 		alumnosMatriculados.add(alumno);
