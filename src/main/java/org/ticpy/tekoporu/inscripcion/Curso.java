@@ -36,6 +36,7 @@ public class Curso {
 	@ExceptionHandler
 	public void tratar(RuntimeException e) {
 		logger.warn(bundle.getString("matricula.error"));
+		
 		throw e;
 	}
 
