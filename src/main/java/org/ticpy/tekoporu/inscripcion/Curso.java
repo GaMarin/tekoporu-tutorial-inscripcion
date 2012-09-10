@@ -5,18 +5,21 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import  org.slf4j.Logger;
+import org.slf4j.Logger;
+import  java.util.ResourceBundle;
 
 public class Curso {
-	
+
 	private List<String> alumnosMatriculados = new ArrayList<String>();
 
 	@Inject
 	private Logger logger;
-	
+	@Inject
+	private ResourceBundle bundle;
+
 	public void matricular(String alumno) {
 		alumnosMatriculados.add(alumno);
-		logger.info("Alumno matriculado con éxito");
+		logger.info( bundle.getString("matricula.exito"));
 
 	}
 
