@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.slf4j.Logger;
+import  org.slf4j.Logger;
 
 public class Curso {
 	
@@ -16,7 +16,7 @@ public class Curso {
 	
 	public void matricular(String alumno) {
 		alumnosMatriculados.add(alumno);
-		logger.info("Aluno matriculado con éxito");
+		logger.info("Alumno matriculado con éxito");
 
 	}
 
