@@ -6,7 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
-import  java.util.ResourceBundle;
+import org.ticpy.tekoporu.util.ResourceBundle;
 
 public class Curso {
 
@@ -18,8 +18,11 @@ public class Curso {
 	private ResourceBundle bundle;
 
 	public void matricular(String alumno) {
+		if (estaMatriculado(alumno) || alumnosMatriculados.size() == 5) {
+			throw new RuntimeException();
+		}
 		alumnosMatriculados.add(alumno);
-		logger.info( bundle.getString("matricula.exito"));
+		logger.info(bundle.getString("matricula.exito", alumno));
 
 	}
 

@@ -20,11 +20,18 @@ public class CursoTest {
 
 	}
 
-	@Test
+	@Test(expected = RuntimeException.class)
 	public void errorMatricularAlumnoDuplicado() {
+		curso.matricular("Andres Gonzalez");
+		curso.matricular("Andres Gonzalez");
 	}
 
-	@Test
+	@Test(expected = RuntimeException.class)
 	public void errorMatricularCursoLleno() {
+		for (int i = 1; i <= 5; i++) {
+			curso.matricular("Alumno " + i);
+		}
+		curso.matricular("Alumno 6");
+
 	}
 }
