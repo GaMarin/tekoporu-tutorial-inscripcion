@@ -1,6 +1,5 @@
 package org.ticpy.tekoporu.inscripcion;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,9 +11,11 @@ import org.ticpy.tekoporu.inscripcion.config.InscripcionConfig;
 import org.ticpy.tekoporu.inscripcion.domain.Alumno;
 import org.ticpy.tekoporu.inscripcion.exception.CursoException;
 import org.ticpy.tekoporu.stereotype.Controller;
+import org.ticpy.tekoporu.transaction.Transactional;
 import org.ticpy.tekoporu.util.ResourceBundle;
 
 @Controller
+@Transactional
 public class Curso {
 
 	@Inject
@@ -35,9 +36,7 @@ public class Curso {
 						.getCapacidadCurso()) {
 			throw new CursoException();
 		}
-		em.getTransaction().begin();
 		em.persist(alumno);
-		em.getTransaction().commit();
 
 		logger.info(bundle.getString("matricula.exito", alumno));
 
