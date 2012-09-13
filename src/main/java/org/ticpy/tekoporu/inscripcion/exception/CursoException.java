@@ -2,7 +2,7 @@ package org.ticpy.tekoporu.inscripcion.exception;
 
 import org.ticpy.tekoporu.exception.ApplicationException;
 
-@ApplicationException(rollback=false)
+@ApplicationException(rollback=true)
 public class CursoException extends RuntimeException{
 
 }
