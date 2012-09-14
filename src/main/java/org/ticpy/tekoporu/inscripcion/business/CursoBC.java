@@ -1,25 +1,25 @@
-package org.ticpy.tekoporu.inscripcion;
+package org.ticpy.tekoporu.inscripcion.business;
 
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
 
 import org.slf4j.Logger;
 import org.ticpy.tekoporu.exception.ExceptionHandler;
 import org.ticpy.tekoporu.inscripcion.config.InscripcionConfig;
 import org.ticpy.tekoporu.inscripcion.domain.Alumno;
 import org.ticpy.tekoporu.inscripcion.exception.CursoException;
-import org.ticpy.tekoporu.stereotype.Controller;
+import org.ticpy.tekoporu.inscripcion.persistence.AlumnoDAO;
+import org.ticpy.tekoporu.stereotype.BusinessController;
 import org.ticpy.tekoporu.transaction.Transactional;
 import org.ticpy.tekoporu.util.ResourceBundle;
 
-@Controller
 @Transactional
-public class Curso {
+@BusinessController
+public class CursoBC {
 
-	@Inject
-	private EntityManager em;
+	@Inject 
+	private AlumnoDAO alumnoDAO;
 
 	@Inject
 	private Logger logger;
@@ -36,8 +36,8 @@ public class Curso {
 						.getCapacidadCurso()) {
 			throw new CursoException();
 		}
-		em.persist(alumno);
-
+		
+		alumnoDAO.insert(alumno);
 		logger.info(bundle.getString("matricula.exito", alumno));
 
 	}
@@ -54,7 +54,7 @@ public class Curso {
 	}
 
 	private List<Alumno> obtenerAlumnosMatriculados() {
-		return em.createQuery("select a from Alumno a").getResultList();
-
+		
+		return alumnoDAO.findAll();
 	}
 }

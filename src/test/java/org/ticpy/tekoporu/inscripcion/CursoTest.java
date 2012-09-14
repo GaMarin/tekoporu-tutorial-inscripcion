@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.ticpy.tekoporu.inscripcion.business.CursoBC;
 import org.ticpy.tekoporu.inscripcion.domain.Alumno;
 import org.ticpy.tekoporu.inscripcion.exception.CursoException;
 import org.ticpy.tekoporu.junit.DemoiselleRunner;
@@ -13,7 +14,7 @@ import org.ticpy.tekoporu.junit.DemoiselleRunner;
 public class CursoTest {
 
 	@Inject
-	private Curso curso;
+	private CursoBC curso;
 
 	@Test
 	public void matricularAlumnoConExito() {
