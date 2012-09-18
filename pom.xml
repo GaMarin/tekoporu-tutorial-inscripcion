@@ -8,7 +8,7 @@
 	<groupId>org.ticpy.tekoporu</groupId>
 	<artifactId>inscripcion</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name></name>
 	<description></description>
@@ -16,7 +16,7 @@
 
 	<parent>
 		<groupId>org.ticpy.tekoporu</groupId>
-		<artifactId>tekoporu-minimal-parent</artifactId>
+		<artifactId>tekoporu-jsf-parent</artifactId>
 		<version>2.2.2-SNAPSHOT</version>
 	</parent>
 
@@ -30,15 +30,6 @@
 			<groupId>org.ticpy.tekoporu</groupId>
 			<artifactId>tekoporu-jpa</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>eclipselink</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-		</dependency>
-
 	</dependencies>
 
 	<repositories>
