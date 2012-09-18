@@ -19,7 +19,7 @@ import org.ticpy.tekoporu.util.ResourceBundle;
 public class CursoBC {
 
 	@Inject 
-	private AlumnoDAO alumnoDAO;
+	private AlumnoBC alumnoBC;
 
 	@Inject
 	private Logger logger;
@@ -30,6 +30,7 @@ public class CursoBC {
 	@Inject
 	private InscripcionConfig config;
 
+	@Transactional
 	public void matricular(Alumno alumno) {
 		if (estaMatriculado(alumno)
 				|| obtenerAlumnosMatriculados().size() == config
@@ -37,7 +38,7 @@ public class CursoBC {
 			throw new CursoException();
 		}
 		
-		alumnoDAO.insert(alumno);
+		alumnoBC.insert(alumno);
 		logger.info(bundle.getString("matricula.exito", alumno));
 
 	}
@@ -55,6 +56,6 @@ public class CursoBC {
 
 	private List<Alumno> obtenerAlumnosMatriculados() {
 		
-		return alumnoDAO.findAll();
+		return alumnoBC.findAll();
 	}
 }
