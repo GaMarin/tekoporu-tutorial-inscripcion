@@ -3,6 +3,7 @@
 	<alternatives>
 		<class>org.ticpy.tekoporu.transaction.JPATransaction</class>
 		<class>org.ticpy.tekoporu.inscripcion.security.Autorizador</class>
+		<class>org.ticpy.tekoporu.inscripcion.security.Autenticador</class>
 	</alternatives>
 	
 </beans>
