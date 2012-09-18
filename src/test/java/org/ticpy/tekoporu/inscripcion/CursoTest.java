@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.ticpy.tekoporu.inscripcion.business.CursoBC;
 import org.ticpy.tekoporu.inscripcion.domain.Alumno;
 import org.ticpy.tekoporu.inscripcion.exception.CursoException;
+import org.ticpy.tekoporu.inscripcion.security.Credenciales;
 import org.ticpy.tekoporu.junit.DemoiselleRunner;
 import org.ticpy.tekoporu.security.SecurityContext;
 
@@ -21,8 +22,13 @@ public class CursoTest {
 	@Inject
 	private SecurityContext securityContext;
 
+	@Inject
+	private Credenciales credenciales;
+
 	@Before
 	public void setUp() {
+		credenciales.setNombre("secretaria");
+		credenciales.setContraseña("secreto");
 		securityContext.login();
 	}
 

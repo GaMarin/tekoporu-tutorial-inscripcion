@@ -1,6 +1,7 @@
 package org.ticpy.tekoporu.inscripcion.security;
 
 import javax.enterprise.inject.Alternative;
+import javax.inject.Inject;
 
 import org.ticpy.tekoporu.security.Authenticator;
 import org.ticpy.tekoporu.security.User;
@@ -8,10 +9,18 @@ import org.ticpy.tekoporu.security.User;
 @Alternative
 public class Autenticador implements Authenticator {
 
+	@Inject
+	private Credenciales credenciales;
+
 	@Override
 	public boolean authenticate() {
-		// TODO Auto-generated method stub
-		return true;
+		boolean autenticado = false;
+		if (credenciales.getNombre().equals("secretaria")
+				&& credenciales.getContraseña().equals("secreto")) {
+			autenticado = true;
+		}
+		return autenticado;
+
 	}
 
 	@Override
