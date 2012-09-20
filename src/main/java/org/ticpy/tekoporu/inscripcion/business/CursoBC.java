@@ -57,7 +57,7 @@ public class CursoBC {
 		throw e;
 	}
 
-	private List<Alumno> obtenerAlumnosMatriculados() {
+	public List<Alumno> obtenerAlumnosMatriculados() {
 
 		return alumnoBC.findAll();
 	}

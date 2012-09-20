@@ -1,0 +1,14 @@
+<html xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+	<h:dataTable id="lista" var="alumno"
+		value="#{cursoMB.alumnosMatriculados}">
+		<h:column>
+			<h:outputText value="#{alumno.matricula}" />
+		</h:column>
+		<h:column>
+			<h:outputText value="#{alumno.nombre}" />
+		</h:column>
+	</h:dataTable>
+</h:body>
+</html>
