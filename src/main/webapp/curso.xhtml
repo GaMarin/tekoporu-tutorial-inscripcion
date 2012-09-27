@@ -1,6 +1,13 @@
 <html xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 <h:body>
+
+	<h:form>
+		Nombre del alumno
+		<h:inputText id="nombreAlumno" value="#{cursoMB.nombreAlumno}" />
+		<h:commandButton value="Matricular" action="#{cursoMB.matricular()}" />
+	</h:form>
+
 	<h:dataTable id="lista" var="alumno"
 		value="#{cursoMB.alumnosMatriculados}">
 		<h:column>
@@ -10,5 +17,8 @@
 			<h:outputText value="#{alumno.nombre}" />
 		</h:column>
 	</h:dataTable>
+
 </h:body>
 </html>
+
+
