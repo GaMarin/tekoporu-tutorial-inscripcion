@@ -35,9 +35,7 @@ public class CursoMB {
 	}
 
 	public void matricular() {
-		bc.matricular(new Alumno(this.getNombreAlumno()));
-		facesContext.addMessage("sucesso", new FacesMessage("Registro realizado con éxito"));
-
+		bc.matricular(new Alumno(nombreAlumno));
 
 
 	}
