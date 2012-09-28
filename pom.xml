@@ -41,6 +41,7 @@
 			<artifactId>powermock-api-easymock</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 	</dependencies>
 
 	<repositories>
